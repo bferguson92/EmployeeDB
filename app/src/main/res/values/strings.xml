@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">EmployeeDB</string>
+    <string name="employee_database">EMPLOYEE DATABASE</string>
+    <string name="enter_name">ENTER NAME</string>
+    <string name="enter_technology">ENTER TECHNOLOGY</string>
+    <string name="enter_position">ENTER POSITION</string>
+    <string name="add_employee">ADD EMPLOYEE</string>
+</resources>
