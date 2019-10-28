@@ -1,6 +1,7 @@
 package com.example.employeedb;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 import com.example.employeedb.adapter.EmployeeAdapter;
 import com.example.employeedb.model.Employee;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,8 +30,8 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
     private DatabaseReference databaseReference;
-    private ArrayList<Employee> employeeArrayList;
     private EmployeeAdapter employeeAdapter;
+    private ArrayList<Employee> employeeArrayList;
 
     @BindView(R.id.edit_text_name)
     EditText editTextName;
@@ -50,7 +52,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        employeeArrayList = new ArrayList<>();
+
+         employeeArrayList = new ArrayList<>();
 
 
         databaseReference = FirebaseDatabase
@@ -73,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
 
         employeeAdapter = new EmployeeAdapter(employeeArrayList);
 
